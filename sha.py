@@ -18,7 +18,7 @@ def sha():
                 if choice == "SHA384":
                     result = hashlib.sha384(input_text.encode())
                     with col1:
-                            st.info(result.hexdigest()) 
+                        st.info(result.hexdigest()) 
                 if choice == "SHA224":
                     result = hashlib.sha224(input_text.encode())
                     with col1:
