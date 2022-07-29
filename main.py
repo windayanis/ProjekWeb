@@ -64,13 +64,24 @@ if selected == "Home":
             """)
     with st.container():
         st.write("---")
-        col1,col2,col3 = st.columns(3)
-        with col2:
-            st.header("Metode Enkripsi :mag:")
-        st.text("")
+        st.header("Metode Enkripsi :mag:")
         st.text("")
     with st.container():
-        col1,col2,col3,col4,col5,col6 = st.columns([2.7,2,2,2,2,2])
+        st.write("""
+                :one: Kriptografi Enkripsi Simetris
+                Kriptografi Enkripsi Simetris, juga dikenal dengan istilah secret key encryption.
+                Metode tersebut menggunakan kunci rahasia yang sama untuk mengenkripsikan pesan mentah di sumber, kemudian mengirimkan pesan yang sudah dienkripsi ke penerima. Lalu, pesan akan dideskripsikan. 
+                
+                :two: Kriptografi Enkripsi Asimetris
+                Kriptografi Enkripsi Asimetris, juga dikenal sebagai public key encryption, menggunakan dua kunci yang berbeda — tetapi terhubung secara logis
+                untuk mengenkripsikan dan mendeskripsikan data. 
+                Dua kunci tersebut adalah kunci publik dan pribadi. Kunci publik bisa disebarluaskan secara terbuka, seperti alamat penerima. Namun, kunci privat hanya diketahui oleh pemilik. 
+                """)   
+        st.text("")
+        st.subheader("Contoh-Contoh Metode Enkripsi :arrow_heading_down:")
+        st.text("")
+        st.text("")
+        col1,col2,col3,col4,col5,col6 = st.columns([3,2,2,2,2,2])
         with col2:
             st.image("gambar/aes.png")
             st.subheader("AES")
