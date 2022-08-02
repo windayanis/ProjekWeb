@@ -5,8 +5,8 @@ from Crypto.Cipher import AES
 import streamlit as st
 
 def aes():
-    plaintext = st.text_area("Masukan plain text")
-    key = st.text_input("Masukan key ")
+    plaintext = st.text_area("Masukkan PlainText/CipherText ")
+    key = st.text_input("Masukkan Key")
     col1,col2,col3 = st.columns([10,1,1])
     BS = 16
     pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
@@ -15,7 +15,7 @@ def aes():
         if st.button("Enkrip"):
             if len(plaintext) == 0:
                 with col1:
-                    st.error("Masukan Text!")
+                    st.error("Masukkan Text!")
             else:
                 p_key = hashlib.sha256(key.encode("utf-8")).digest()
                 raw = pad(plaintext)
@@ -28,10 +28,10 @@ def aes():
         if st.button("Dekrip"):
             if len(plaintext) % 4 != 0:
                 with col1:
-                    st.error("Masukan yang benar!")
+                    st.error("Masukkan yang benar!")
             elif len(plaintext) == 0:
                 with col1:
-                    st.error("Masukan Text!")
+                    st.error("Masukkan Text!")
             else:
                 p_key = hashlib.sha256(key.encode("utf-8")).digest()
                 plaintext = base64.b64decode(plaintext)
@@ -40,3 +40,12 @@ def aes():
                 hasil = unpad(cipher.decrypt(plaintext[BS:]))
                 with col1:
                     st.info(bytes.decode(hasil))
+
+
+    with st.container():
+        st.text("")
+        st.header("Apa itu AES?")
+        st.write("""
+        AES (Advanced Encryption Standard) atau Standar Enkripsi Lanjutan merupakan standar enkripsi dengan kunci simetris yang diadopsi oleh Pemerintah Amerika Serikat. Standar ini terdiri dari tiga penyandian blok, yaitu AES-128, AES-192, dan AES-256. Tiap-tiap penyandian memiliki ukuran blok 128 bit dengan ukuran kunci masing-masing 128, 192, dan 256 bit. AES telah dianalisis secara luas dan sekarang digunakan di seluruh dunia, 
+        seperti halnya dengan pendahulunya, Standar Enkripsi Data (DES).
+        """)
