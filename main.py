@@ -34,11 +34,9 @@ if selected == "Home":
         left_column,right_column = st.columns(2)
     with left_column:
         st.write("""
-        Enkripsi adalah proses teknis yang mengonversikan informasi menjadi kode rahasia, 
-        sehingga mengaburkan data yang Anda kirim, terima, atau simpan. Pada dasarnya, 
-        sebuah algoritme digunakan untuk mengacak data, sebelum pihak penerima memulihkan kembali data yang diacak tersebut menggunakan kunci dekripsi.
-        Pesan yang telah dipulihkan di dalam file yang tidak terenkripsi ini disebut sebagai "plaintext", 
-        sementara dalam bentuk terenkripsi pesan itu disebut sebagai "ciphertext".
+        Enkripsi adalah cara mengacak data sehingga informasi tersebut hanya bisa dibaca oleh orang-orang yang memiliki aksesnya saja.
+        Secara teknis, enkripsi adalah proses konversi teks biasa yang terbaca manusia (human-readable plaintext) menjadi teks yang tidak bisa dibaca dan dimengerti (incomprehensible text) yang biasa disebut ciphertext.
+        Untuk bisa membacanya, dibutuhkan cryptographic key.
         """)
         st.text("")
         st.header("Apa itu Dekripsi? :unlock:")
@@ -64,21 +62,20 @@ if selected == "Home":
             """)
     with st.container():
         st.write("---")
-        st.header("Metode Enkripsi :mag:")
+        st.header("Jenis Enkripsi :mag:")
         st.text("")
     with st.container():
         st.write("""
-                :one: Kriptografi Enkripsi Simetris
-                Kriptografi Enkripsi Simetris, juga dikenal dengan istilah secret key encryption.
-                Metode tersebut menggunakan kunci rahasia yang sama untuk mengenkripsikan pesan mentah di sumber, kemudian mengirimkan pesan yang sudah dienkripsi ke penerima. Lalu, pesan akan dideskripsikan. 
+                :one:
+                Enkripsi Simetris, menggunakan satu kunci yang dibagikan oleh pengirim dan penerima dalam artian lain kunci yang sama digunakan untuk enkripsi dan dekripsi.
                 
-                :two: Kriptografi Enkripsi Asimetris
-                Kriptografi Enkripsi Asimetris, juga dikenal sebagai public key encryption, menggunakan dua kunci yang berbeda — tetapi terhubung secara logis
+                :two:
+                Enkripsi Asimetris, menggunakan dua kunci yang berbeda — tetapi terhubung secara logis
                 untuk mengenkripsikan dan mendeskripsikan data. 
-                Dua kunci tersebut adalah kunci publik dan pribadi. Kunci publik bisa disebarluaskan secara terbuka, seperti alamat penerima. Namun, kunci privat hanya diketahui oleh pemilik. 
+                Dua kunci tersebut adalah kunci publik dan pribadi. Kunci publik bisa disebarluaskan secara terbuka. Namun, kunci privat hanya diketahui oleh pemilik. 
                 """)   
         st.text("")
-        st.subheader("Contoh-Contoh Metode Enkripsi :arrow_heading_down:")
+        st.subheader("Contoh Algoritma Enkripsi :arrow_heading_down:")
         st.text("")
         st.text("")
         col1,col2,col3,col4,col5,col6 = st.columns([3,2,2,2,2,2])
