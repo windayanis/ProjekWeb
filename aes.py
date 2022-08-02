@@ -25,22 +25,23 @@ def aes():
                 with col1:
                     st.info(bytes.decode(hasil)) 
     with col3:
-        if st.button("Dekrip"):
-            if len(plaintext) % 4 != 0:
+        try:
+            if st.button("Dekrip"):          
+                inputan = plaintext
+                if len(inputan) == 0:
+                    with col1:
+                        st.error("Masukkan Text!")
+                else:
+                    p_key = hashlib.sha256(key.encode("utf-8")).digest()
+                    plaintext = base64.b64decode(plaintext)
+                    iv = plaintext[:BS]
+                    cipher = AES.new(p_key, AES.MODE_CBC, iv)
+                    hasil = unpad(cipher.decrypt(plaintext[BS:]))
+                    with col1:
+                        st.info(bytes.decode(hasil))
+        except:
                 with col1:
-                    st.error("Masukkan yang benar!")
-            elif len(plaintext) == 0:
-                with col1:
-                    st.error("Masukkan Text!")
-            else:
-                p_key = hashlib.sha256(key.encode("utf-8")).digest()
-                plaintext = base64.b64decode(plaintext)
-                iv = plaintext[:BS]
-                cipher = AES.new(p_key, AES.MODE_CBC, iv)
-                hasil = unpad(cipher.decrypt(plaintext[BS:]))
-                with col1:
-                    st.info(bytes.decode(hasil))
-
+                    st.error("Kesalahan Input")
 
     with st.container():
         st.text("")
